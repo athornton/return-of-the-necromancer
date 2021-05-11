@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Adam Thornton)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="./modifications.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Adam Thornton</h2><p class="date">Created: 2021-05-10 Mon 19:38</p>
+</section>
+
+<section>
+<section id="slide-sec-">
+<h2 id="orgd86febe">Software Necromancy Part II</h2>
+<div class="outline-text-2" id="text-orgd86febe">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org72ca916">Return of the Necromancer</h3>
+<div class="outline-text-3" id="text-org72ca916">
+</div>
+</section>
+<section id="slide-sec-">
+<h4 id="orga1d0758">Adam Thornton, May 20201</h4>
+<p>
+<a href="https://athornton.github.io/return-of-the-necromancer">https://athornton.github.io/return-of-the-necromancer</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/qrcode.png" alt="qrcode.png" />
+</p>
+</div>
+
+<p>
+CC BY-NC 4.0
+</p>
+
+<p>
+<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">https://creativecommons.org/licenses/by-nc/4.0/legalcode</a>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h2 id="orgb403490">Two main topics for today</h2>
+<div class="outline-text-2" id="text-orgb403490">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org6bc044c">Porting sort-of-modern software to ancient operating systems</h3>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org3bf88b4">Unix v7 as a daily driver</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org9c99430">First port: Frotz for TOPS-20</h3>
+<p>
+Frotz is an interpreter for Infocom-format Z-machine games.  This
+includes the released Infocom games&#x2013;Zorks 1-3, Planetfall, The
+Hitchhiker's Guide to the Galaxy, Trinity, et cetera.
+</p>
+
+<p>
+It also includes the post-Infocom Z-machine games: Curses, Anchorhead,
+et al.  Z5 existed in the real Infocom world (Trinity, Beyond Zork,
+Solid Gold).  Z8 is purely post-commercial.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgf307dd1">Why Frotz?</h3>
+<p>
+I maintain the Linux CLI port of Inform 7; dumb-frotz is the test
+harness there, so I knew it reasonably well.  The dumb-frotz port does
+not require a cursor-addressible terminal, which meant I wasn't going to
+have to find or write a curses layer for my target systems.
+</p>
+
+<p>
+It's ANSI C (almost), and pretty straightforward.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orga1dd60c">Why TOPS-20?</h3>
+<p>
+Infocom used a TOPS-20 system as their development system once they went
+commercial.  Mark Crispin (RIP) created a lovely TOPS-20 distribution,
+Pandas, which includes an ANSI C compiler and a lot of Unix
+accommodation support.  This plus the KLH-10 emulator made getting a
+development environment pretty easy, and setting up TCP/IP on TOPS-20
+wasn't too difficult; thus getting files in and out was almost
+straightforward.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org44e2a76">Why not ITS?</h3>
+<p>
+Because ITS sucks.
+</p>
+
+<p>
+Sure, it'd be nice to bring the Z-machine games <span class="underline">all the way</span> back
+home.  But the C compiler is slightly pre-K&amp;R and the overall
+environment is something I find just excruciating.
+</p>
+
+<p>
+Lars Brinkhoff and David Griffith may be working on this.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org507a6c1">So, what's hard here?</h3>
+<div class="outline-text-3" id="text-org507a6c1">
+</div>
+</section>
+<section id="slide-sec-">
+<h4 id="org047f21f">9-bit bytes</h4>
+<p>
+The Z-machine looks a lot like a PDP-11: 16-bit word, 64K addressible
+memory (z5 and z8 basically just stretch the alignment, allowing more
+ROM text, but not doing a lot with the writeable memory of the
+Z-machine).  The host machine is 36-bit with 9-bit chars.
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="org79c1469">The linker</h4>
+<p>
+You've only got six characters, effectively, for a symbol.  Modern
+applications do not typically have only-six-character function names.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org138043a">We'll start with the linker</h3>
+<p>
+This is the easier problem.  If the function names are too long&#x2026;make
+them shorter.  Write a source code preprocessor:
+</p>
+
+<p>
+<a href="https://github.com/athornton/gnusto-frotz-tops20">https://github.com/athornton/gnusto-frotz-tops20</a>
+</p>
+
+<p>
+I used Perl, because for line-at-a-time text parsing and regex
+substitution, it still beats the hell out of Python.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org090ed66">Once you've done that&#x2026;.</h3>
+<p>
+<a href="https://github.com/athornton/tops20-frotz">https://github.com/athornton/tops20-frotz</a>
+</p>
+
+<p>
+<a href="https://github.com/athornton/tops20-frotz/blob/master/urbzig.sed">urbzig.sed</a> contains the symbol remappings.
+</p>
+
+<p>
+Then you get to tackle the hard part.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgf97d420">Nine-bit bytes</h3>
+<p>
+From the Dumb-Frotz README, in CAVEATS:
+</p>
+
+<p>
+lack of 8-bit char and 16-bit short.  I didn't bother to think
+much about this.  If you're using a 36-bit Honeywell or
+something, let me know.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgfe42bf3">In practice, not that bad</h3>
+<p>
+Turn macros back into functions for easier debugging.
+</p>
+
+<p>
+Do a lot of &amp;0xFF and &amp;0xFFFF.
+</p>
+
+<p>
+There are a few places with pointer arithmetic that you need to be
+careful with.
+</p>
+
+<p>
+Frotz has a decent test suite, so it was an iterative process to see
+which opcodes were failing and then a matter of tracing the flow and
+figuring out where the failure in the opcode is.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgb87bdbd">And now it works</h3>
+<p>
+All the V3-V8 games run.  Those that need fancy display capabilities
+(Jigsaw, Beyond Zork, some of the stunt games) don't work so great, of
+course.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org6a906be">Second port: ZIP for 2.11BSD</h3>
+<p>
+Another Z-machine interpreter, put together for my annual Elvis party.
+</p>
+
+<p>
+Zork I was actually released for RSX-11, and I think there's a
+reasonable RSX-11M+ interpreter for most games, but I wanted it to be
+Unix.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org2a761c9">What's hard here?</h3>
+<p>
+The hard part is that the PDP-11 is not actually bigger than the
+Z-Machine.  This isn't a problem per se.  The whole point of the
+Z-machine was to let you implement a 16-bit virtual machine on an 8-bit
+micro.
+</p>
+
+<p>
+But I didn't have time or desire to write a tight little Z-code terp in
+PDP-11 assembly.  And anyway those were generally only v3 interpreters,
+and I wanted at least v5 games to work.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orge3e0f8e">Where to start?</h3>
+<p>
+Modern Z-terps assume that there's plenty of system memory available: no
+need to do paging and memory is at least 32 addressible bits.  So I had
+to go back to a DOS-era interpreter to find something that didn't make
+those incorrect assumptions.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org4861b56">ZIP.  No, not that one.</h3>
+<p>
+I ended with the Zmachine InterPreter, ZIP (named before the archive
+format), now called "zterp" for obvious reasons
+</p>
+
+<p>
+<a href="https://github.com/athornton/pdp11-zterp">https://github.com/athornton/pdp11-zterp</a>
+</p>
+
+<p>
+The only changes I remember needing were some linker flags to use split
+instruction and data spaces.
+</p>
+
+<p>
+A few of the bigger Z5 games still don't run, but most games do.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org9099428">Third port: Forth for v7</h3>
+<p>
+I started with Leif Bruder's Forth:
+<a href="https://gist.github.com/lbruder/10007431">https://gist.github.com/lbruder/10007431</a>
+</p>
+
+<p>
+It's a single-file C program, ANSI C.  It builds cleanly on 2.11 BSD.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org3d61108">Ah, but v7</h3>
+<p>
+So, there are a few problems.  The six-character symbol thing is back in
+effect.  That's tractable.
+</p>
+
+<p>
+The C compiler is K&amp;R, not ANSI.  That too is tractable; mostly
+unprotoizing functions, and there was a concatenation macro that I
+needed to fiddle with.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgad529a7">But still not success</h3>
+<p>
+So now I can get all the functions to compile, but the linker is angry
+because either (if I leave it as one file) there are too many symbols,
+or (if I break the functions into individual files) there are too many
+files.  I'm fairly confident there is a happy medium here somewhere, but
+I haven't put in the time to find it.  The v7 linker is fragile and does
+not have good error messages.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org46a7fbd">v7 as a Daily Driver</h3>
+<p>
+I'm not <b>really</b> suggesting doing this, but&#x2026;how close to usable is a
+v7 system?
+</p>
+
+<p>
+Let's assume that "editing, compiling, and running C files and shell
+scripts" is much of what you need on a day-to-day basis.
+</p>
+
+<p>
+There are two things obviously wrong with v7 for that out of the box: no
+screen editor, and no networking, so no easy way to get a file into the
+v7 environment for editing.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgd6d36d2">Screen Editor</h3>
+<p>
+Webb Miller wrote <span class="underline">A Software Tools Sampler</span> in 1987.  It includes a
+little vi-sorta-alike called s.  This can be found at
+<a href="https://github.com/udo-munk/s/">https://github.com/udo-munk/s/</a>.
+</p>
+
+<p>
+It took a little hacking to make work under v7, but not much (I don't
+remember the details, alas).  It still doesn't work reliably on large
+files, and the screen handling can be a little funny, but&#x2026;basically it
+works like vi.  Which is no emacs, but is better than ed, for sure.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org6f97c0e">Getting files into v7</h3>
+<p>
+There's a trivial and lame way.  I use iTerm2 on the Mac.  It has a
+"paste slowly" option.
+</p>
+
+<p>
+cat &gt; filename &#x2026; and then paste slowly into it from the Mac's
+effectively-infinite pasteboard.  Doesn't work well for non-text, but
+that's not much of a problem, honestly.
+</p>
+
+<p>
+I wanted something slightly less janky.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org65822a9">UUCP</h3>
+<p>
+Before there was universal TCP/IP, there was UUCP.  Designed for dialup,
+batch file transfer.  This is kind of perfect for what I needed.
+</p>
+
+<p>
+I followed the guide at
+<a href="https://github.com/jwbrase/pdp11-tools/blob/master/howtos/V7%20UUCP%20Installation%20Guide.pdf">UUCP
+for v7</a> and now have a reasonable way to move files from the Pi host
+(which of course is a completely-modern Linux system) to v7, and vice
+versa.  It's extremely slow, but what do I care?
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org6e05e2b">Verdict</h3>
+<p>
+You wouldn't WANT to use it, but&#x2026;v7 is still much more pleasant than
+DOS or Windows 3.x.  If you really want to use a Unix on a PDP-11,
+though, NetBSD 2.11 is pretty much a fully-baked BSD, with a TCP/IP
+stack and vi and everything.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org94ef082">Other stuff</h3>
+<p>
+I'm working on getting a DECNet Phase IV (over IP) cluster going between
+a real VAX, a real Alpha, an emulated VAX, and an emulated Alpha.
+</p>
+
+<p>
+Also trying to get a real Unix installed on a real VAXStation 4000vlc.
+It will probably be NetBSD.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
