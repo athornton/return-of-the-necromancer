@@ -235,3 +235,10 @@ DOS or Windows 3.x.  If you really want to use a Unix on a PDP-11,
 though, NetBSD 2.11 is pretty much a fully-baked BSD, with a TCP/IP
 stack and vi and everything.
 
+** Other stuff
+
+I'm working on getting a DECNet Phase IV (over IP) cluster going between
+a real VAX, a real Alpha, an emulated VAX, and an emulated Alpha.
+
+Also trying to get a real Unix installed on a real VAXStation 4000vlc.
+It will probably be NetBSD.
