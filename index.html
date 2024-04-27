@@ -7,19 +7,19 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/reveal.css"/>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/theme/night.css" id="theme"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/theme/night.css" id="theme"/>
 
 <link rel="stylesheet" href="./modifications.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/css/zenburn.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/lib/css/zenburn.css"/>
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
     if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/print/pdf.css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -27,30 +27,30 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h2 class="author">Adam Thornton</h2><p class="date">Created: 2021-05-10 Mon 19:38</p>
+<section id="sec-title-slide"><h2 class="author">Adam Thornton</h2><p class="date">Created: 2024-04-27 Sat 09:06</p>
 </section>
 
 <section>
 <section id="slide-sec-">
-<h2 id="orgd86febe">Software Necromancy Part II</h2>
-<div class="outline-text-2" id="text-orgd86febe">
+<h2 id="org8e9c666">Software Necromancy Part II</h2>
+<div class="outline-text-2" id="text-org8e9c666">
 </div>
 </section>
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org72ca916">Return of the Necromancer</h3>
-<div class="outline-text-3" id="text-org72ca916">
+<h3 id="org4eeba9b">Return of the Necromancer</h3>
+<div class="outline-text-3" id="text-org4eeba9b">
 </div>
 </section>
 <section id="slide-sec-">
-<h4 id="orga1d0758">Adam Thornton, May 20201</h4>
+<h4 id="org8cc607e">Adam Thornton, May 20201</h4>
 <p>
 <a href="https://athornton.github.io/return-of-the-necromancer">https://athornton.github.io/return-of-the-necromancer</a>
 </p>
 
 
-<div class="figure">
+<div id="org8fcd777" class="figure">
 <p><img src="./assets/qrcode.png" alt="qrcode.png" />
 </p>
 </div>
@@ -68,25 +68,25 @@ CC BY-NC 4.0
 </section>
 <section>
 <section id="slide-sec-">
-<h2 id="orgb403490">Two main topics for today</h2>
-<div class="outline-text-2" id="text-orgb403490">
+<h2 id="org59b07b2">Two main topics for today</h2>
+<div class="outline-text-2" id="text-org59b07b2">
 </div>
 </section>
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org6bc044c">Porting sort-of-modern software to ancient operating systems</h3>
+<h3 id="org21d85cc">Porting sort-of-modern software to ancient operating systems</h3>
 </section>
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org3bf88b4">Unix v7 as a daily driver</h3>
+<h3 id="orgd66a9c5">Unix v7 as a daily driver</h3>
 
 </section>
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org9c99430">First port: Frotz for TOPS-20</h3>
+<h3 id="orgd2ee2aa">First port: Frotz for TOPS-20</h3>
 <p>
 Frotz is an interpreter for Infocom-format Z-machine games.  This
 includes the released Infocom games&#x2013;Zorks 1-3, Planetfall, The
@@ -103,7 +103,7 @@ Solid Gold).  Z8 is purely post-commercial.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgf307dd1">Why Frotz?</h3>
+<h3 id="orgec4cf8e">Why Frotz?</h3>
 <p>
 I maintain the Linux CLI port of Inform 7; dumb-frotz is the test
 harness there, so I knew it reasonably well.  The dumb-frotz port does
@@ -119,7 +119,7 @@ It's ANSI C (almost), and pretty straightforward.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orga1dd60c">Why TOPS-20?</h3>
+<h3 id="org948c87f">Why TOPS-20?</h3>
 <p>
 Infocom used a TOPS-20 system as their development system once they went
 commercial.  Mark Crispin (RIP) created a lovely TOPS-20 distribution,
@@ -134,7 +134,7 @@ straightforward.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org44e2a76">Why not ITS?</h3>
+<h3 id="orgd9c3233">Why not ITS?</h3>
 <p>
 Because ITS sucks.
 </p>
@@ -153,12 +153,12 @@ Lars Brinkhoff and David Griffith may be working on this.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org507a6c1">So, what's hard here?</h3>
-<div class="outline-text-3" id="text-org507a6c1">
+<h3 id="org0415a27">So, what's hard here?</h3>
+<div class="outline-text-3" id="text-org0415a27">
 </div>
 </section>
 <section id="slide-sec-">
-<h4 id="org047f21f">9-bit bytes</h4>
+<h4 id="orgda7b721">9-bit bytes</h4>
 <p>
 The Z-machine looks a lot like a PDP-11: 16-bit word, 64K addressible
 memory (z5 and z8 basically just stretch the alignment, allowing more
@@ -168,7 +168,7 @@ Z-machine).  The host machine is 36-bit with 9-bit chars.
 
 </section>
 <section id="slide-sec-">
-<h4 id="org79c1469">The linker</h4>
+<h4 id="org639ef2f">The linker</h4>
 <p>
 You've only got six characters, effectively, for a symbol.  Modern
 applications do not typically have only-six-character function names.
@@ -178,7 +178,7 @@ applications do not typically have only-six-character function names.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org138043a">We'll start with the linker</h3>
+<h3 id="org8d5c836">We'll start with the linker</h3>
 <p>
 This is the easier problem.  If the function names are too long&#x2026;make
 them shorter.  Write a source code preprocessor:
@@ -197,7 +197,7 @@ substitution, it still beats the hell out of Python.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org090ed66">Once you've done that&#x2026;.</h3>
+<h3 id="orgc12acb1">Once you've done that&#x2026;.</h3>
 <p>
 <a href="https://github.com/athornton/tops20-frotz">https://github.com/athornton/tops20-frotz</a>
 </p>
@@ -214,7 +214,7 @@ Then you get to tackle the hard part.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgf97d420">Nine-bit bytes</h3>
+<h3 id="org524d200">Nine-bit bytes</h3>
 <p>
 From the Dumb-Frotz README, in CAVEATS:
 </p>
@@ -229,7 +229,7 @@ something, let me know.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgfe42bf3">In practice, not that bad</h3>
+<h3 id="org65733c5">In practice, not that bad</h3>
 <p>
 Turn macros back into functions for easier debugging.
 </p>
@@ -253,7 +253,7 @@ figuring out where the failure in the opcode is.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgb87bdbd">And now it works</h3>
+<h3 id="orgc7a4b03">And now it works</h3>
 <p>
 All the V3-V8 games run.  Those that need fancy display capabilities
 (Jigsaw, Beyond Zork, some of the stunt games) don't work so great, of
@@ -264,7 +264,7 @@ course.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org6a906be">Second port: ZIP for 2.11BSD</h3>
+<h3 id="orge5ac0df">Second port: ZIP for 2.11BSD</h3>
 <p>
 Another Z-machine interpreter, put together for my annual Elvis party.
 </p>
@@ -279,7 +279,7 @@ Unix.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org2a761c9">What's hard here?</h3>
+<h3 id="org85b0f0c">What's hard here?</h3>
 <p>
 The hard part is that the PDP-11 is not actually bigger than the
 Z-Machine.  This isn't a problem per se.  The whole point of the
@@ -297,7 +297,7 @@ and I wanted at least v5 games to work.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orge3e0f8e">Where to start?</h3>
+<h3 id="org847b3fb">Where to start?</h3>
 <p>
 Modern Z-terps assume that there's plenty of system memory available: no
 need to do paging and memory is at least 32 addressible bits.  So I had
@@ -309,7 +309,7 @@ those incorrect assumptions.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org4861b56">ZIP.  No, not that one.</h3>
+<h3 id="org22d2e87">ZIP.  No, not that one.</h3>
 <p>
 I ended with the Zmachine InterPreter, ZIP (named before the archive
 format), now called "zterp" for obvious reasons
@@ -332,7 +332,7 @@ A few of the bigger Z5 games still don't run, but most games do.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org9099428">Third port: Forth for v7</h3>
+<h3 id="org5af71ee">Third port: Forth for v7</h3>
 <p>
 I started with Leif Bruder's Forth:
 <a href="https://gist.github.com/lbruder/10007431">https://gist.github.com/lbruder/10007431</a>
@@ -346,7 +346,7 @@ It's a single-file C program, ANSI C.  It builds cleanly on 2.11 BSD.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org3d61108">Ah, but v7</h3>
+<h3 id="org130a0d2">Ah, but v7</h3>
 <p>
 So, there are a few problems.  The six-character symbol thing is back in
 effect.  That's tractable.
@@ -362,7 +362,7 @@ needed to fiddle with.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgad529a7">But still not success</h3>
+<h3 id="org3145c2f">But still not success</h3>
 <p>
 So now I can get all the functions to compile, but the linker is angry
 because either (if I leave it as one file) there are too many symbols,
@@ -376,7 +376,7 @@ not have good error messages.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org46a7fbd">v7 as a Daily Driver</h3>
+<h3 id="org5303054">v7 as a Daily Driver</h3>
 <p>
 I'm not <b>really</b> suggesting doing this, but&#x2026;how close to usable is a
 v7 system?
@@ -397,7 +397,7 @@ v7 environment for editing.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="orgd6d36d2">Screen Editor</h3>
+<h3 id="org97a8167">Screen Editor</h3>
 <p>
 Webb Miller wrote <span class="underline">A Software Tools Sampler</span> in 1987.  It includes a
 little vi-sorta-alike called s.  This can be found at
@@ -415,7 +415,7 @@ works like vi.  Which is no emacs, but is better than ed, for sure.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org6f97c0e">Getting files into v7</h3>
+<h3 id="org6630666">Getting files into v7</h3>
 <p>
 There's a trivial and lame way.  I use iTerm2 on the Mac.  It has a
 "paste slowly" option.
@@ -435,7 +435,7 @@ I wanted something slightly less janky.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org65822a9">UUCP</h3>
+<h3 id="orge9c88b8">UUCP</h3>
 <p>
 Before there was universal TCP/IP, there was UUCP.  Designed for dialup,
 batch file transfer.  This is kind of perfect for what I needed.
@@ -453,7 +453,7 @@ versa.  It's extremely slow, but what do I care?
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org6e05e2b">Verdict</h3>
+<h3 id="org7d08f20">Verdict</h3>
 <p>
 You wouldn't WANT to use it, but&#x2026;v7 is still much more pleasant than
 DOS or Windows 3.x.  If you really want to use a Unix on a PDP-11,
@@ -465,7 +465,7 @@ stack and vi and everything.
 </section>
 <section>
 <section id="slide-sec-">
-<h3 id="org94ef082">Other stuff</h3>
+<h3 id="orgb150c12">Other stuff</h3>
 <p>
 I'm working on getting a DECNet Phase IV (over IP) cluster going between
 a real VAX, a real Alpha, an emulated VAX, and an emulated Alpha.
@@ -479,8 +479,8 @@ It will probably be NetBSD.
 </section>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/js/head.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/js/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
@@ -507,7 +507,7 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 });
 </script>
 </body>
