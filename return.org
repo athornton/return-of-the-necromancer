@@ -1,18 +1,26 @@
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil
 #+REVEAL_HLEVEL: 2
-#+REVEAL_INIT_OPTIONS: slideNumber: h/v
+#+REVEAL_INIT_OPTIONS: slideNumber: "h/v"
 #+REVEAL_THEME: night
-#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_PLUGINS: (highlight)
-#+REVEAL_EXTRA_CSS: ./modifications.css
+#+REVEAL_EXTRA_CSS: ./css/modifications.css
+#+LATEX_COMPILER: lualatex
+#+LATEX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \setsansfont{Verdana}
+#+LATEX_HEADER: \setmainfont{Verdana}
+#+AUTHOR: Adam Thornton
+#+EMAIL: athornton@gmail.com
+#+TITLE: Return of the Necromancer
 
 * Software Necromancy Part II
 ** Return of the Necromancer
 
 *** Adam Thornton, May 20201
 
-https://athornton.github.io/return-of-the-necromancer
+https://athornton.github.io/return-of-the-necromancer [[./return.pdf][(PDF]])
 
 [[./assets/qrcode.png]]
 
