@@ -2,24 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title></title>
-<meta name="author" content="(Adam Thornton)"/>
+<title>Return of the Necromancer</title>
+<meta name="author" content="Adam Thornton"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/theme/night.css" id="theme"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme"/>
 
-<link rel="stylesheet" href="./modifications.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/lib/css/zenburn.css"/>
+<link rel="stylesheet" href="./css/modifications.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/zenburn.css"/>
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
     if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/print/pdf.css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -27,30 +29,30 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h2 class="author">Adam Thornton</h2><p class="date">Created: 2024-04-27 Sat 09:06</p>
+<section id="sec-title-slide"><h1 class="title">Return of the Necromancer</h1><p class="subtitle"></p>
+<h2 class="author">Adam Thornton</h2><p class="date">Created: 2025-09-17 Wed 05:23</p>
 </section>
-
 <section>
-<section id="slide-sec-">
-<h2 id="org8e9c666">Software Necromancy Part II</h2>
-<div class="outline-text-2" id="text-org8e9c666">
+<section id="slide-orgdbf3475">
+<h2 id="orgdbf3475">Software Necromancy Part II</h2>
+<div class="outline-text-2" id="text-orgdbf3475">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org4eeba9b">Return of the Necromancer</h3>
-<div class="outline-text-3" id="text-org4eeba9b">
+<section id="slide-org7d761cd">
+<h3 id="org7d761cd">Return of the Necromancer</h3>
+<div class="outline-text-3" id="text-org7d761cd">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="org8cc607e">Adam Thornton, May 20201</h4>
+<section id="slide-orga6b4a83">
+<h4 id="orga6b4a83">Adam Thornton, May 20201</h4>
 <p>
-<a href="https://athornton.github.io/return-of-the-necromancer">https://athornton.github.io/return-of-the-necromancer</a>
+<a href="https://athornton.github.io/return-of-the-necromancer">https://athornton.github.io/return-of-the-necromancer</a> <a href="./return.pdf">(PDF</a>)
 </p>
 
 
-<div id="org8fcd777" class="figure">
+<div id="org863d50f" class="figure">
 <p><img src="./assets/qrcode.png" alt="qrcode.png" />
 </p>
 </div>
@@ -62,31 +64,29 @@ CC BY-NC 4.0
 <p>
 <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">https://creativecommons.org/licenses/by-nc/4.0/legalcode</a>
 </p>
-
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h2 id="org59b07b2">Two main topics for today</h2>
-<div class="outline-text-2" id="text-org59b07b2">
+<section id="slide-orgd499108">
+<h2 id="orgd499108">Two main topics for today</h2>
+<div class="outline-text-2" id="text-orgd499108">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org21d85cc">Porting sort-of-modern software to ancient operating systems</h3>
+<section id="slide-org0d17585">
+<h3 id="org0d17585">Porting sort-of-modern software to ancient operating systems</h3>
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgd66a9c5">Unix v7 as a daily driver</h3>
+<section id="slide-orgda79149">
+<h3 id="orgda79149">Unix v7 as a daily driver</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgd2ee2aa">First port: Frotz for TOPS-20</h3>
+<section id="slide-orge395dc3">
+<h3 id="orge395dc3">First port: Frotz for TOPS-20</h3>
 <p>
 Frotz is an interpreter for Infocom-format Z-machine games.  This
 includes the released Infocom games&#x2013;Zorks 1-3, Planetfall, The
@@ -98,12 +98,11 @@ It also includes the post-Infocom Z-machine games: Curses, Anchorhead,
 et al.  Z5 existed in the real Infocom world (Trinity, Beyond Zork,
 Solid Gold).  Z8 is purely post-commercial.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgec4cf8e">Why Frotz?</h3>
+<section id="slide-orgea0c0d5">
+<h3 id="orgea0c0d5">Why Frotz?</h3>
 <p>
 I maintain the Linux CLI port of Inform 7; dumb-frotz is the test
 harness there, so I knew it reasonably well.  The dumb-frotz port does
@@ -114,12 +113,11 @@ have to find or write a curses layer for my target systems.
 <p>
 It's ANSI C (almost), and pretty straightforward.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org948c87f">Why TOPS-20?</h3>
+<section id="slide-org222946d">
+<h3 id="org222946d">Why TOPS-20?</h3>
 <p>
 Infocom used a TOPS-20 system as their development system once they went
 commercial.  Mark Crispin (RIP) created a lovely TOPS-20 distribution,
@@ -129,12 +127,11 @@ development environment pretty easy, and setting up TCP/IP on TOPS-20
 wasn't too difficult; thus getting files in and out was almost
 straightforward.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgd9c3233">Why not ITS?</h3>
+<section id="slide-org9d8d833">
+<h3 id="org9d8d833">Why not ITS?</h3>
 <p>
 Because ITS sucks.
 </p>
@@ -148,37 +145,34 @@ environment is something I find just excruciating.
 <p>
 Lars Brinkhoff and David Griffith may be working on this.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org0415a27">So, what's hard here?</h3>
-<div class="outline-text-3" id="text-org0415a27">
+<section id="slide-org4a71f94">
+<h3 id="org4a71f94">So, what's hard here?</h3>
+<div class="outline-text-3" id="text-org4a71f94">
 </div>
 </section>
-<section id="slide-sec-">
-<h4 id="orgda7b721">9-bit bytes</h4>
+<section id="slide-orgb55b7ba">
+<h4 id="orgb55b7ba">9-bit bytes</h4>
 <p>
 The Z-machine looks a lot like a PDP-11: 16-bit word, 64K addressible
 memory (z5 and z8 basically just stretch the alignment, allowing more
 ROM text, but not doing a lot with the writeable memory of the
 Z-machine).  The host machine is 36-bit with 9-bit chars.
 </p>
-
 </section>
-<section id="slide-sec-">
-<h4 id="org639ef2f">The linker</h4>
+<section id="slide-orgb957c21">
+<h4 id="orgb957c21">The linker</h4>
 <p>
 You've only got six characters, effectively, for a symbol.  Modern
 applications do not typically have only-six-character function names.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org8d5c836">We'll start with the linker</h3>
+<section id="slide-orgead5da5">
+<h3 id="orgead5da5">We'll start with the linker</h3>
 <p>
 This is the easier problem.  If the function names are too long&#x2026;make
 them shorter.  Write a source code preprocessor:
@@ -192,12 +186,11 @@ them shorter.  Write a source code preprocessor:
 I used Perl, because for line-at-a-time text parsing and regex
 substitution, it still beats the hell out of Python.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgc12acb1">Once you've done that&#x2026;.</h3>
+<section id="slide-orge68adab">
+<h3 id="orge68adab">Once you've done that&#x2026;.</h3>
 <p>
 <a href="https://github.com/athornton/tops20-frotz">https://github.com/athornton/tops20-frotz</a>
 </p>
@@ -209,12 +202,11 @@ substitution, it still beats the hell out of Python.
 <p>
 Then you get to tackle the hard part.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org524d200">Nine-bit bytes</h3>
+<section id="slide-orgb03ef9f">
+<h3 id="orgb03ef9f">Nine-bit bytes</h3>
 <p>
 From the Dumb-Frotz README, in CAVEATS:
 </p>
@@ -224,12 +216,11 @@ lack of 8-bit char and 16-bit short.  I didn't bother to think
 much about this.  If you're using a 36-bit Honeywell or
 something, let me know.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org65733c5">In practice, not that bad</h3>
+<section id="slide-orgbd27591">
+<h3 id="orgbd27591">In practice, not that bad</h3>
 <p>
 Turn macros back into functions for easier debugging.
 </p>
@@ -248,23 +239,21 @@ Frotz has a decent test suite, so it was an iterative process to see
 which opcodes were failing and then a matter of tracing the flow and
 figuring out where the failure in the opcode is.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgc7a4b03">And now it works</h3>
+<section id="slide-orgaa72f1c">
+<h3 id="orgaa72f1c">And now it works</h3>
 <p>
 All the V3-V8 games run.  Those that need fancy display capabilities
 (Jigsaw, Beyond Zork, some of the stunt games) don't work so great, of
 course.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orge5ac0df">Second port: ZIP for 2.11BSD</h3>
+<section id="slide-org178d314">
+<h3 id="org178d314">Second port: ZIP for 2.11BSD</h3>
 <p>
 Another Z-machine interpreter, put together for my annual Elvis party.
 </p>
@@ -274,12 +263,11 @@ Zork I was actually released for RSX-11, and I think there's a
 reasonable RSX-11M+ interpreter for most games, but I wanted it to be
 Unix.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org85b0f0c">What's hard here?</h3>
+<section id="slide-orgcdb14e7">
+<h3 id="orgcdb14e7">What's hard here?</h3>
 <p>
 The hard part is that the PDP-11 is not actually bigger than the
 Z-Machine.  This isn't a problem per se.  The whole point of the
@@ -292,24 +280,22 @@ But I didn't have time or desire to write a tight little Z-code terp in
 PDP-11 assembly.  And anyway those were generally only v3 interpreters,
 and I wanted at least v5 games to work.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org847b3fb">Where to start?</h3>
+<section id="slide-orgfadaf9a">
+<h3 id="orgfadaf9a">Where to start?</h3>
 <p>
 Modern Z-terps assume that there's plenty of system memory available: no
 need to do paging and memory is at least 32 addressible bits.  So I had
 to go back to a DOS-era interpreter to find something that didn't make
 those incorrect assumptions.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org22d2e87">ZIP.  No, not that one.</h3>
+<section id="slide-org66f3f2c">
+<h3 id="org66f3f2c">ZIP.  No, not that one.</h3>
 <p>
 I ended with the Zmachine InterPreter, ZIP (named before the archive
 format), now called "zterp" for obvious reasons
@@ -327,12 +313,11 @@ instruction and data spaces.
 <p>
 A few of the bigger Z5 games still don't run, but most games do.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org5af71ee">Third port: Forth for v7</h3>
+<section id="slide-org07eb7a7">
+<h3 id="org07eb7a7">Third port: Forth for v7</h3>
 <p>
 I started with Leif Bruder's Forth:
 <a href="https://gist.github.com/lbruder/10007431">https://gist.github.com/lbruder/10007431</a>
@@ -341,12 +326,11 @@ I started with Leif Bruder's Forth:
 <p>
 It's a single-file C program, ANSI C.  It builds cleanly on 2.11 BSD.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org130a0d2">Ah, but v7</h3>
+<section id="slide-orgc9dd7de">
+<h3 id="orgc9dd7de">Ah, but v7</h3>
 <p>
 So, there are a few problems.  The six-character symbol thing is back in
 effect.  That's tractable.
@@ -357,12 +341,11 @@ The C compiler is K&amp;R, not ANSI.  That too is tractable; mostly
 unprotoizing functions, and there was a concatenation macro that I
 needed to fiddle with.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org3145c2f">But still not success</h3>
+<section id="slide-org34db326">
+<h3 id="org34db326">But still not success</h3>
 <p>
 So now I can get all the functions to compile, but the linker is angry
 because either (if I leave it as one file) there are too many symbols,
@@ -371,12 +354,11 @@ files.  I'm fairly confident there is a happy medium here somewhere, but
 I haven't put in the time to find it.  The v7 linker is fragile and does
 not have good error messages.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org5303054">v7 as a Daily Driver</h3>
+<section id="slide-org2580442">
+<h3 id="org2580442">v7 as a Daily Driver</h3>
 <p>
 I'm not <b>really</b> suggesting doing this, but&#x2026;how close to usable is a
 v7 system?
@@ -392,12 +374,11 @@ There are two things obviously wrong with v7 for that out of the box: no
 screen editor, and no networking, so no easy way to get a file into the
 v7 environment for editing.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org97a8167">Screen Editor</h3>
+<section id="slide-orgafaeedb">
+<h3 id="orgafaeedb">Screen Editor</h3>
 <p>
 Webb Miller wrote <span class="underline">A Software Tools Sampler</span> in 1987.  It includes a
 little vi-sorta-alike called s.  This can be found at
@@ -410,12 +391,11 @@ remember the details, alas).  It still doesn't work reliably on large
 files, and the screen handling can be a little funny, but&#x2026;basically it
 works like vi.  Which is no emacs, but is better than ed, for sure.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org6630666">Getting files into v7</h3>
+<section id="slide-org4611030">
+<h3 id="org4611030">Getting files into v7</h3>
 <p>
 There's a trivial and lame way.  I use iTerm2 on the Mac.  It has a
 "paste slowly" option.
@@ -430,12 +410,11 @@ that's not much of a problem, honestly.
 <p>
 I wanted something slightly less janky.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orge9c88b8">UUCP</h3>
+<section id="slide-org9aad1c0">
+<h3 id="org9aad1c0">UUCP</h3>
 <p>
 Before there was universal TCP/IP, there was UUCP.  Designed for dialup,
 batch file transfer.  This is kind of perfect for what I needed.
@@ -448,24 +427,22 @@ for v7</a> and now have a reasonable way to move files from the Pi host
 (which of course is a completely-modern Linux system) to v7, and vice
 versa.  It's extremely slow, but what do I care?
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="org7d08f20">Verdict</h3>
+<section id="slide-org0923efe">
+<h3 id="org0923efe">Verdict</h3>
 <p>
 You wouldn't WANT to use it, but&#x2026;v7 is still much more pleasant than
 DOS or Windows 3.x.  If you really want to use a Unix on a PDP-11,
 though, NetBSD 2.11 is pretty much a fully-baked BSD, with a TCP/IP
 stack and vi and everything.
 </p>
-
 </section>
 </section>
 <section>
-<section id="slide-sec-">
-<h3 id="orgb150c12">Other stuff</h3>
+<section id="slide-org4eae3bf">
+<h3 id="org4eae3bf">Other stuff</h3>
 <p>
 I'm working on getting a DECNet Phase IV (over IP) cluster going between
 a real VAX, a real Alpha, an emulated VAX, and an emulated Alpha.
@@ -479,36 +456,20 @@ It will probably be NetBSD.
 </section>
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/lib/js/head.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/js/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-
-controls: true,
-progress: true,
-history: false,
-center: true,
-slideNumber: 'c',
-rollingLinks: false,
-keyboard: true,
-overview: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
+slideNumber: "h/v",
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
 });
+
 </script>
 </body>
 </html>
